@@ -1,5 +1,7 @@
 # French Repo
 
+### Lien de la repo = https://codeberg.org/Krfcm2/frencharchive/raw/branch/main/repo.json (a copier dans CloudStream)
+
 Il est préférable d'utiliser cette repo avec l'option de contournage des FAI activé sur CloudStream
 
 
