@@ -3,6 +3,6 @@
     "description": "French Repository Forked de Eddy's Repo",
     "manifestVersion": 1,
     "pluginLists": [
-        "https://codeberg.org/Krfcm2/frencharchive/raw/branch/master/plugins.json"
+        "https://codeberg.org/Krfcm2/frencharchive/raw/branch/main/plugins.json"
     ]
 }
