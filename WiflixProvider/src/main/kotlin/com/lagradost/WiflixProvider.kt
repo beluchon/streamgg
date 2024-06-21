@@ -12,9 +12,10 @@ import com.lagradost.cloudstream3.network.CloudflareKiller
 import com.lagradost.nicehttp.NiceResponse
 import java.util.*
 
+import android.util.Log
 
 class WiflixProvider : MainAPI() {
-    override var mainUrl = "https://wiflix.voto/"
+    override var mainUrl = "https://wiflix.date/"
     override var name = "Wiflix"
     override val hasQuickSearch = false // recherche rapide (optionel, pas vraimet utile)
     override val hasMainPage = true // page d'accueil (optionel mais encoragé)
@@ -101,6 +102,8 @@ class WiflixProvider : MainAPI() {
     }
 
     override suspend fun load(url: String): LoadResponse {
+        Log.d("MyTag", "This is a debug message") // Debug log message
+
         val document = avoidCloudflare(url).document //
         // url est le lien retourné par la fonction search (la variable href) ou la fonction getMainPage
         var subEpisodes = ArrayList<Episode>()
