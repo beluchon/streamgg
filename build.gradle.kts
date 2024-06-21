@@ -59,6 +59,16 @@ subprojects {
         }
 
         tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+            // Set the custom output directory
+            val customOutputDir = file("$buildDir/compiled")
+
+            // Ensure the custom output directory exists
+            doFirst {
+                customOutputDir.mkdirs()
+            }
+            // Set the destination directory
+            destinationDirectory.set(customOutputDir)
+
             kotlinOptions {
                 jvmTarget = "1.8" // Required
                 // Disables some unnecessary features
