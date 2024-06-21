@@ -1,6 +1,7 @@
 package com.lagradost
 
 
+import android.util.Log
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
@@ -264,7 +265,7 @@ class VostfreeProvider : MainAPI() {
                         "Stream" -> "https://myvi.ru/player/embed/html/$codePlayload"
                         else -> return@apmap
                     }
-
+                    Log.d("MyTag", "playerUrl: $playerUrl")
 
                     loadExtractor(
                         httpsify(playerUrl),
