@@ -26,6 +26,7 @@ class WiflixProvider : MainAPI() {
     private var isNotInit = true
     suspend fun initMainUrl() {
         try {
+            Log.d("MyTag", "This is a debug message") // Debug log message
             val document = avoidCloudflare(mainUrl).document
             val newMainUrl = document.select("link[rel*=\"canonical\"]").attr("href")
             if (!newMainUrl.isNullOrBlank() && newMainUrl.contains("wiflix")) { // allow to find the redirect url if it's changed
