@@ -33,6 +33,7 @@ class WiflixProvider : MainAPI() {
                 mainUrl = newMainUrl
             }
         } catch (e: Exception) { // url changed
+            Log.d("MyTag", "This is a debug message")
         }
         if (mainUrl.endsWith("/")) mainUrl.dropLast(1)
         isNotInit = false
@@ -74,6 +75,7 @@ class WiflixProvider : MainAPI() {
     ): ArrayList<Episode> {
 
         val episodes = ArrayList<Episode>()
+        Log.d("MyTag", "This is a debug message")
         this.select("ul.eplist > li").forEach {
 
             val strEpisodeN =
@@ -220,6 +222,7 @@ class WiflixProvider : MainAPI() {
         subtitleCallback: (SubtitleFile) -> Unit,
         callback: (ExtractorLink) -> Unit,
     ): Boolean {
+        Log.d("MyTag", "This is a debug message")
         var isvostfr = false
         val trueUrl: String
         val parsedInfo = if (data.takeLast(8) == "*vostfr*") {
