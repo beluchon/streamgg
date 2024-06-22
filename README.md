@@ -1,6 +1,6 @@
 # French Repo
 
-### Lien de la repo = https://codeberg.org/zzikozz/frencharchive/raw/branch/main/repo.json (a copier dans CloudStream)
+### Lien de la repo = https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/repo.json (a copier dans CloudStream)
 
 Il est préférable d'utiliser cette repo avec l'option de contournage des FAI activé sur CloudStream
 
