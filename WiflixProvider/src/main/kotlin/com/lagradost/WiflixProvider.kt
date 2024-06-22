@@ -12,8 +12,6 @@ import com.lagradost.cloudstream3.network.CloudflareKiller
 import com.lagradost.nicehttp.NiceResponse
 import java.util.*
 
-import android.util.Log
-
 class WiflixProvider : MainAPI() {
     override var mainUrl = "https://wiflix.date/"
     override var name = "Wiflix"
@@ -229,11 +227,9 @@ class WiflixProvider : MainAPI() {
         }
 
         val url = parsedInfo?.url ?: trueUrl
-        //Log.d("MyTag", "url: $url")
         val numeroEpisode = parsedInfo?.episodeNumber
 
         val document = avoidCloudflare(url).document
-        //Log.d("MyTag", "document: $document")
         val episodeFrfound =
             document.select("div.blocfr")
         val episodeVostfrfound =
@@ -254,15 +250,11 @@ class WiflixProvider : MainAPI() {
             flag = " \uD83D\uDCDC \uD83C\uDDEC\uD83C\uDDE7"
         }
 
-        Log.d("MyTag", "cssCodeForPlayer: $cssCodeForPlayer")
-
         document.select(cssCodeForPlayer).apmap { player -> // séléctione tous les players
 
             var playerUrl = Regex("""loadVideo\('([^']+)'\)""").find(player.attr("onclick"))?.groupValues?.get(1).toString()
-
             playerUrl = playerUrl.replace(Regex("(?<=uqload)\\.to"), ".com")
-            //var playerUrl = "https" +  zzUrl.replace("(.*)https".toRegex(), "")
-            Log.d("MyTag", "playerUrl: $playerUrl")
+
             if (!playerUrl.isBlank())
                 loadExtractor(
                     httpsify(playerUrl),
@@ -282,8 +274,6 @@ class WiflixProvider : MainAPI() {
                         )
                     )
                 }
-
-            Log.d("MyTag", "Callback name: $callback.name")
         }
 
 
