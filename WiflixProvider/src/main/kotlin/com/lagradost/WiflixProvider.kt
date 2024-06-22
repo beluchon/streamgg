@@ -102,8 +102,6 @@ class WiflixProvider : MainAPI() {
     }
 
     override suspend fun load(url: String): LoadResponse {
-        Log.d("MyTag", "This is a debug message") // Debug log message
-
         val document = avoidCloudflare(url).document //
         // url est le lien retourné par la fonction search (la variable href) ou la fonction getMainPage
         var subEpisodes = ArrayList<Episode>()
@@ -231,10 +229,11 @@ class WiflixProvider : MainAPI() {
         }
 
         val url = parsedInfo?.url ?: trueUrl
-
+        //Log.d("MyTag", "url: $url")
         val numeroEpisode = parsedInfo?.episodeNumber
 
         val document = avoidCloudflare(url).document
+        //Log.d("MyTag", "document: $document")
         val episodeFrfound =
             document.select("div.blocfr")
         val episodeVostfrfound =
@@ -255,28 +254,36 @@ class WiflixProvider : MainAPI() {
             flag = " \uD83D\uDCDC \uD83C\uDDEC\uD83C\uDDE7"
         }
 
+        Log.d("MyTag", "cssCodeForPlayer: $cssCodeForPlayer")
 
         document.select(cssCodeForPlayer).apmap { player -> // séléctione tous les players
-            var playerUrl = "https" + player.attr("href").replace("(.*)https".toRegex(), "")
+
+            var playerUrl = Regex("""loadVideo\('([^']+)'\)""").find(player.attr("onclick"))?.groupValues?.get(1).toString()
+
+            playerUrl = playerUrl.replace(Regex("(?<=uqload)\\.to"), ".com")
+            //var playerUrl = "https" +  zzUrl.replace("(.*)https".toRegex(), "")
+            Log.d("MyTag", "playerUrl: $playerUrl")
             if (!playerUrl.isBlank())
-            loadExtractor(
-                httpsify(playerUrl),
-                playerUrl,
-                subtitleCallback
-            ) { link ->
-                callback.invoke(
-                    ExtractorLink( // ici je modifie le callback pour ajouter des informations, normalement ce n'est pas nécessaire
-                        link.source,
-                        link.name + flag,
-                        link.url,
-                        link.referer,
-                        getQualityFromName("HD"),
-                        link.isM3u8,
-                        link.headers,
-                        link.extractorData
+                loadExtractor(
+                    httpsify(playerUrl),
+                    playerUrl,
+                    subtitleCallback,
+                ) { link ->
+                    callback.invoke(
+                        ExtractorLink( // ici je modifie le callback pour ajouter des informations, normalement ce n'est pas nécessaire
+                            link.source,
+                            link.name + flag,
+                            link.url,
+                            link.referer,
+                            getQualityFromName("HD"),
+                            link.isM3u8,
+                            link.headers,
+                            link.extractorData
+                        )
                     )
-                )
-            }
+                }
+
+            Log.d("MyTag", "Callback name: $callback.name")
         }
 
 
