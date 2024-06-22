@@ -247,7 +247,7 @@ class WiflixProvider : MainAPI() {
             "div.ep${numeroEpisode}vs > a"
 
         } else {
-            "div.linkstab > a"
+            "div.linkstab > a "
         }
 
         if (cssCodeForPlayer.contains("vs") || isvostfr) {
