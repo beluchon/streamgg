@@ -12,7 +12,7 @@ import com.lagradost.cloudstream3.utils.loadExtractor
 import org.jsoup.nodes.Element
 
 
-class FrenchStreamProvider : MainAPI() {
+class HDStoProvider : MainAPI() {
     override var mainUrl = "https://www2.hds-streaming.to/"
     override var name = "HDS.to"
     override val hasQuickSearch = false
@@ -40,7 +40,7 @@ class FrenchStreamProvider : MainAPI() {
         var dubEpisodes = listOf<Episode>()
         val title = soup.selectFirst("h1#s-title")!!.text().toString()
         val description =
-            soup.selectFirst("div#s-desc")!!.text().toString().replace(/^.*?console/, '');
+            soup.selectFirst("div#s-desc")!!.text().toString().replace(Regex("^.*?console"), "")
         val poster = soup.selectFirst("div.fposter > img")?.attr("src")
         val tags = soup.select("ul.flist-col > li").getOrNull(1)
 
@@ -68,10 +68,10 @@ class FrenchStreamProvider : MainAPI() {
     ): Boolean {
 		
 		val servers = app.get(data).document.select("div.tabs-sel a").attr("cid")
-
+/*
         servers.apmap { playerUrl ->
             loadExtractor(playerUrl, mainUrl, subtitleCallback, callback)
-        }
+        }*/
 
         return true
     }
