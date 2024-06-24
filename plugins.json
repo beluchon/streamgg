@@ -36,7 +36,7 @@
         "version": 1,
         "internalName": "HDStoProvider",
         "description": "HDS.to - Film streaming, Voirfilms, Film en streaming, regarder des films en streaming gratuitement sur HDS, Voir films streaming gratuit.",
-        "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/HDStoProvider.cs3",
+        "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/compiled/HDStoProvider.cs3",
         "name": "HDStoProvider"
     }
 ]
