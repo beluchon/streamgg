@@ -4,6 +4,7 @@ package com.lagradost
 import android.util.Log
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.lagradost.cloudstream3.*
+import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.LoadResponse.Companion.addTrailer
 import com.lagradost.cloudstream3.utils.AppUtils.toJson
 import com.lagradost.cloudstream3.utils.AppUtils.tryParseJson
@@ -21,11 +22,12 @@ class HDStoProvider : MainAPI() {
     override val supportedTypes = setOf(TvType.Movie)
 
     override suspend fun search(query: String): List<SearchResponse> {
-        val link = "$mainUrl/search/$query" // search'
+		Log.d("zzikozz", "Searching")
+        val link = "$mainUrl/search/$query/" // search'
         val document =
-            app.post(link).document // app.get() permet de télécharger la page html avec une requete HTTP (get)
+            app.get(link, timeout = 120).document // app.get() permet de télécharger la page html avec une requete HTTP (get)
         val results = document.select("div#dle-content > div.short")
-
+		Log.d("zzikozz", "results: $results")
 
         val allresultshome =
             results.mapNotNull { article ->  // avec mapnotnull si un élément est null, il sera automatiquement enlevé de la liste
@@ -35,13 +37,17 @@ class HDStoProvider : MainAPI() {
     }
 
     override suspend fun load(url: String): LoadResponse {
+		//Log.d("zzikozz", "url: $url")
         val soup = app.get(url).document
-        var subEpisodes = listOf<Episode>()
-        var dubEpisodes = listOf<Episode>()
+
+
         val title = soup.selectFirst("h1#s-title")!!.text().toString()
         val description =
             soup.selectFirst("div#s-desc")!!.text().toString().replace(Regex("^.*?console"), "")
+
         val poster = soup.selectFirst("div.fposter > img")?.attr("src")
+		
+		//Log.d("zzikozz", "poster: $poster")
         val tags = soup.select("ul.flist-col > li").getOrNull(1)
 
 
@@ -53,7 +59,8 @@ class HDStoProvider : MainAPI() {
                     it?.text()
                 }
             return newMovieLoadResponse(title, url, TvType.Movie, url) {
-                this.posterUrl = poster
+				//Log.d("zzikozz", "newMovieLoadResponse")
+                this.posterUrl = mainUrl + poster
                 this.year = year?.toIntOrNull()
                 this.tags = tagsList
                 this.plot = description
@@ -66,12 +73,13 @@ class HDStoProvider : MainAPI() {
         subtitleCallback: (SubtitleFile) -> Unit,
         callback: (ExtractorLink) -> Unit,
     ): Boolean {
-		
-		val servers = app.get(data).document.select("div.tabs-sel a").attr("cid")
-/*
-        servers.apmap { playerUrl ->
-            loadExtractor(playerUrl, mainUrl, subtitleCallback, callback)
-        }*/
+
+
+                app.get(data).document.select("div.tabs-sel a").apmap { player -> // séléctione tous les players
+				var playerUrl = player.attr("cid")
+				playerUrl = playerUrl.replace(Regex("(?<=uqload)\\.to"), ".com")
+            loadExtractor(httpsify(playerUrl), playerUrl, subtitleCallback, callback)
+        }
 
         return true
     }
@@ -81,8 +89,9 @@ class HDStoProvider : MainAPI() {
 
         val posterUrl = fixUrl(select("a.short-poster > img").attr("src"))
         val title = select("div.short-title").text()
-        val link = select("a.short-poster").attr("href")
-		
+        val link = fixUrl(select("a.short-poster").attr("href"))
+		//Log.d("zzikozz", "posterUrl: $posterUrl")
+		//Log.d("zzikozz", "link: $link")
             return MovieSearchResponse(
                 name = title,
                 url = link,
@@ -99,17 +108,25 @@ class HDStoProvider : MainAPI() {
     )
 
     override val mainPage = mainPageOf(
-        Pair("film-genre/film-streaming/", "Derniers films ajoutés"),
+        Pair("film-streaming/", "Derniers films ajoutés"),
         Pair("film-genre/action/", "Action"),
         Pair("film-genre/thriller/", "Thriller"),
         Pair("film-genre/drame/", "Drame"),
         Pair("film-genre/comedie/", "Comédie"),
         Pair("film-genre/anime/", "Animation"),
+        Pair("film-genre/policier/", "Policier"),
+        Pair("film-genre/science-fiction/", "Fiction"),
+        Pair("film-genre/epouvante-horreur/", "Horreur"),
+		Pair("film-genre/guerre/", "Guerre"),
+		Pair("film-genre/aventure/", "Aventure"),
+		Pair("film-genre/musical/", "Musique"),
+		Pair("film-genre/romance/", "Romance"),
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val url = mainUrl + request.data + page
-        val document = app.get(url).document
+		//Log.d("zzikozz", "page: $page")
+        val document = app.get(url, timeout = 120).document
         val movies = document.select("div#dle-content > div.short")
 
         val home =
