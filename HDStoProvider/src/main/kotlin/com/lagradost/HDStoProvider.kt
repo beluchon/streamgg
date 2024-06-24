@@ -23,10 +23,11 @@ class HDStoProvider : MainAPI() {
 
     override suspend fun search(query: String): List<SearchResponse> {
 		Log.d("zzikozz", "Searching")
-        val link = "$mainUrl/search/$query/" // search'
+        val link = "$mainUrl/search/$query" // search'
         val document =
             app.get(link, timeout = 120).document // app.get() permet de télécharger la page html avec une requete HTTP (get)
         val results = document.select("div#dle-content > div.short")
+		Log.d("zzikozz", "document: $document")
 		Log.d("zzikozz", "results: $results")
 
         val allresultshome =
