@@ -22,13 +22,10 @@ class HDStoProvider : MainAPI() {
     override val supportedTypes = setOf(TvType.Movie)
 
     override suspend fun search(query: String): List<SearchResponse> {
-		Log.d("zzikozz", "Searching")
         val link = "$mainUrl/search/$query" // search'
         val document =
             app.get(link, timeout = 120).document // app.get() permet de télécharger la page html avec une requete HTTP (get)
         val results = document.select("div#dle-content > div.short")
-		Log.d("zzikozz", "document: $document")
-		Log.d("zzikozz", "results: $results")
 
         val allresultshome =
             results.mapNotNull { article ->  // avec mapnotnull si un élément est null, il sera automatiquement enlevé de la liste
@@ -38,7 +35,6 @@ class HDStoProvider : MainAPI() {
     }
 
     override suspend fun load(url: String): LoadResponse {
-		//Log.d("zzikozz", "url: $url")
         val soup = app.get(url).document
 
 
@@ -48,7 +44,7 @@ class HDStoProvider : MainAPI() {
 
         val poster = soup.selectFirst("div.fposter > img")?.attr("src")
 		
-		//Log.d("zzikozz", "poster: $poster")
+
         val tags = soup.select("ul.flist-col > li").getOrNull(1)
 
 
@@ -60,7 +56,7 @@ class HDStoProvider : MainAPI() {
                     it?.text()
                 }
             return newMovieLoadResponse(title, url, TvType.Movie, url) {
-				//Log.d("zzikozz", "newMovieLoadResponse")
+
                 this.posterUrl = mainUrl + poster
                 this.year = year?.toIntOrNull()
                 this.tags = tagsList
@@ -91,8 +87,7 @@ class HDStoProvider : MainAPI() {
         val posterUrl = fixUrl(select("a.short-poster > img").attr("src"))
         val title = select("div.short-title").text()
         val link = fixUrl(select("a.short-poster").attr("href"))
-		//Log.d("zzikozz", "posterUrl: $posterUrl")
-		//Log.d("zzikozz", "link: $link")
+
             return MovieSearchResponse(
                 name = title,
                 url = link,
@@ -126,7 +121,6 @@ class HDStoProvider : MainAPI() {
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val url = mainUrl + request.data + page
-		//Log.d("zzikozz", "page: $page")
         val document = app.get(url, timeout = 120).document
         val movies = document.select("div#dle-content > div.short")
 
