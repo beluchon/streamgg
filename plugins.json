@@ -19,5 +19,24 @@
         "description": "WIFLIX, le site gr\u00e2ce auquel vous allez pouvoir regarder vos films et s\u00e9ries pr\u00e9f\u00e9r\u00e9es",
         "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/compiled/WiflixProvider.cs3",
         "name": "WiflixProvider"
+    },
+    {
+        "iconUrl": "https://www2.hds-streaming.to/favicon.ico",
+        "apiVersion": 1,
+        "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
+        "fileSize": 26169,
+        "status": 1,
+        "language": "fr",
+        "authors": [
+            "zzikozz"
+        ],
+        "tvTypes": [
+            "Movie"
+        ],
+        "version": 1,
+        "internalName": "HDStoProvider",
+        "description": "HDS.to - Film streaming, Voirfilms, Film en streaming, regarder des films en streaming gratuitement sur HDS, Voir films streaming gratuit.",
+        "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/HDStoProvider.cs3",
+        "name": "HDStoProvider"
     }
 ]
