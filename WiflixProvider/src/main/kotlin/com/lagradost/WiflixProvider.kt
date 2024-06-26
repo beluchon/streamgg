@@ -12,6 +12,9 @@ import com.lagradost.cloudstream3.network.CloudflareKiller
 import com.lagradost.nicehttp.NiceResponse
 import java.util.*
 
+import android.util.Log
+
+
 class WiflixProvider : MainAPI() {
     override var mainUrl = "https://wiflix.date/"
     override var name = "Wiflix"
@@ -253,7 +256,7 @@ class WiflixProvider : MainAPI() {
         document.select(cssCodeForPlayer).apmap { player -> // séléctione tous les players
 
             var playerUrl = Regex("""loadVideo\('([^']+)'\)""").find(player.attr("onclick"))?.groupValues?.get(1).toString()
-            playerUrl = playerUrl.replace(Regex("(?<=uqload)\\.to"), ".com")
+            Log.d("zzikozz", "playerUrl: $playerUrl")
 
             if (!playerUrl.isBlank())
                 loadExtractor(

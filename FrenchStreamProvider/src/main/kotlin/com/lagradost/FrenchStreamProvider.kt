@@ -21,11 +21,12 @@ class FrenchStreamProvider : MainAPI() {
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 
     override suspend fun search(query: String): List<SearchResponse> {
-        val link = "$mainUrl/?do=search&subaction=search&story=$query" // search'
+        val link = "$mainUrl/index.php?do=search&subaction=search&story=$query" // search'
         val document =
-            app.post(link).document // app.get() permet de télécharger la page html avec une requete HTTP (get)
+            app.get(link).document // app.get() permet de télécharger la page html avec une requete HTTP (get)
         val results = document.select("div#dle-content > div.short")
 
+        Log.d("zzikozz", "playerUrl: $results")
 
         val allresultshome =
             results.mapNotNull { article ->  // avec mapnotnull si un élément est null, il sera automatiquement enlevé de la liste
