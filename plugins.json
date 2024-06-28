@@ -103,7 +103,7 @@
         "name": "VostfreeProvider"
     },
     {
-        "iconUrl": "https://www.google.com/s2/favicons?domain=wiflix.zone&sz=%size%",
+        "iconUrl": "https://wiflix.bio/favicon.ico",
         "apiVersion": 1,
         "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
         "fileSize": 26169,
@@ -116,7 +116,7 @@
             "TvSeries",
             "Movie"
         ],
-        "version": 3,
+        "version": 4,
         "internalName": "WiflixProvider",
         "description": "WIFLIX, le site gr\u00e2ce auquel vous allez pouvoir regarder vos films et s\u00e9ries pr\u00e9f\u00e9r\u00e9es",
         "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/WiflixProvider.cs3",
@@ -140,5 +140,25 @@
         "description": "HDS.to - Film streaming, Voirfilms, Film en streaming, regarder des films en streaming gratuitement sur HDS, Voir films streaming gratuit.",
         "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/HDStoProvider.cs3",
         "name": "HDStoProvider"
-    }
+    },
+    {
+    "iconUrl": "https://monstream.app/templates/monstream_rip/images/favicon.png",
+    "apiVersion": 1,
+    "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
+    "fileSize": 26169,
+    "status": 1,
+    "language": "fr",
+    "authors": [
+        "zzikozz"
+    ],
+    "tvTypes": [
+        "TvSeries",
+        "Movie"
+    ],
+    "version": 1,
+    "internalName": "MonStreamProvider",
+    "description": "MonStream - site exclusif de streaming Francophone où 95% de films et series en streaming sont dispo en qualité HD, en VF et VOSTFR et gratuitement.",
+    "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/WiflixProvider.cs3",
+    "name": "MonStreamProvider"
+}
 ]
