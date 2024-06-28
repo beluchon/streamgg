@@ -158,7 +158,7 @@
     "version": 1,
     "internalName": "MonStreamProvider",
     "description": "MonStream - site exclusif de streaming Francophone où 95% de films et series en streaming sont dispo en qualité HD, en VF et VOSTFR et gratuitement.",
-    "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/WiflixProvider.cs3",
+    "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/MonStreamProvider.cs3",
     "name": "MonStreamProvider"
 }
 ]
