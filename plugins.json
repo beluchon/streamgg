@@ -15,14 +15,14 @@
             "TvSeries",
             "Movie"
         ],
-        "version": 8,
+        "version": 9,
         "internalName": "FrenchStreamProvider",
         "description": "FRENCH STREAM en plus d'\u00eatre un site efficace et plaisant dispose d'un contenu visuel diversifi\u00e9",
         "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/compiled/FrenchStreamProvider.cs3",
         "name": "FrenchStreamProvider"
     },
     {
-        "iconUrl": "https://www.google.com/s2/favicons?domain=wiflix.zone&sz=%size%",
+        "iconUrl": "https://wiflix.bio/favicon.ico",
         "apiVersion": 1,
         "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
         "fileSize": 26169,
@@ -35,7 +35,7 @@
             "TvSeries",
             "Movie"
         ],
-        "version": 3,
+        "version": 4,
         "internalName": "WiflixProvider",
         "description": "WIFLIX, le site gr\u00e2ce auquel vous allez pouvoir regarder vos films et s\u00e9ries pr\u00e9f\u00e9r\u00e9es",
         "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/compiled/WiflixProvider.cs3",
