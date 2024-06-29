@@ -145,8 +145,8 @@
     "iconUrl": "https://monstream.app/templates/monstream_rip/images/favicon.png",
     "apiVersion": 1,
     "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
-    "fileSize": 26169,
-    "status": 1,
+    "fileSize": 0,
+    "status": 0,
     "language": "fr",
     "authors": [
         "zzikozz"
@@ -160,5 +160,25 @@
     "description": "MonStream - site exclusif de streaming Francophone où 95% de films et series en streaming sont dispo en qualité HD, en VF et VOSTFR et gratuitement.",
     "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/MonStreamProvider.cs3",
     "name": "MonStreamProvider"
+},
+    {
+    "iconUrl": "https://wwv.wookafr.org/wp-content/uploads/2023/08/icon-192x192-1-150x150.webp",
+    "apiVersion": 1,
+    "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
+    "fileSize": 0,
+    "status": 3,
+    "language": "fr",
+    "authors": [
+        "zzikozz"
+    ],
+    "tvTypes": [
+        "TvSeries",
+        "Movie"
+    ],
+    "version": 1,
+    "internalName": "WookaFRProvider",
+    "description": "WookaFR est le meilleur site de streaming gratuit. Regardez WookaFR pour voir vos films, séries, animés en illimités.",
+    "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/WookaFRProvider.cs3",
+    "name": "WookaFRProvider"
 }
 ]
