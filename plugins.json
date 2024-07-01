@@ -180,5 +180,24 @@
     "description": "WookaFR est le meilleur site de streaming gratuit. Regardez WookaFR pour voir vos films, séries, animés en illimités.",
     "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/WookaFRProvider.cs3",
     "name": "WookaFRProvider"
+},{
+    "iconUrl": "https://sadisflix.cyou/uploads/system_logo/favicon_656c5b99516dd.png",
+    "apiVersion": 1,
+    "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
+    "fileSize": 0,
+    "status": 1,
+    "language": "fr",
+    "authors": [
+        "zzikozz"
+    ],
+    "tvTypes": [
+        "TvSeries",
+        "Movie"
+    ],
+    "version": 1,
+    "internalName": "SadisflixProvider",
+    "description": "Site de Streaming 100% Gratuit et Français. Découvrez notre catalogue exclusif de Films et Séries en qualité HD. Rejoignez notre communauté pour profiter d'un divertissement illimité et d'une expérience de streaming VF et VOSTFR de qualité.",
+    "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/SadisflixProvider.cs3",
+    "name": "SadisflixProvider"
 }
 ]
