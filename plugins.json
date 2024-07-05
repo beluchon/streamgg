@@ -93,7 +93,7 @@
         "TvSeries",
         "Movie"
     ],
-    "version": 2,
+    "version": 3,
     "internalName": "SadisflixProvider",
     "description": "Site de Streaming 100% Gratuit et Français. Découvrez notre catalogue exclusif de Films et Séries en qualité HD. Rejoignez notre communauté pour profiter d'un divertissement illimité et d'une expérience de streaming VF et VOSTFR de qualité.",
     "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/compiled/SadisflixProvider.cs3",
