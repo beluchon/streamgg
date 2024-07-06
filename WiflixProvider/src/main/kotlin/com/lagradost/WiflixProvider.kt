@@ -16,7 +16,7 @@ import android.util.Log
 
 
 class WiflixProvider : MainAPI() {
-    override var mainUrl = "https://wiflix.date/"
+    override var mainUrl = "https://wiflix.bio/"
     override var name = "Wiflix"
     override val hasQuickSearch = false // recherche rapide (optionel, pas vraimet utile)
     override val hasMainPage = true // page d'accueil (optionel mais encoragé)
@@ -270,7 +270,7 @@ class WiflixProvider : MainAPI() {
                             link.name + flag,
                             link.url,
                             link.referer,
-                            getQualityFromName("HD"),
+                            link.quality,
                             link.isM3u8,
                             link.headers,
                             link.extractorData
@@ -368,7 +368,6 @@ class WiflixProvider : MainAPI() {
         val url = mainUrl + request.data + page
         val document =
             avoidCloudflare(url).document
-
         //posterHeaders = interceptor.getCookieHeaders(url).toMap()
 
         val movies = document.select("div#dle-content > div.clearfix")
@@ -381,4 +380,3 @@ class WiflixProvider : MainAPI() {
     }
 
 }
-
