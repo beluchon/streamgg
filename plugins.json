@@ -199,5 +199,24 @@
     "description": "Site de Streaming 100% Gratuit et Français. Découvrez notre catalogue exclusif de Films et Séries en qualité HD. Rejoignez notre communauté pour profiter d'un divertissement illimité et d'une expérience de streaming VF et VOSTFR de qualité.",
     "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/SadisflixProvider.cs3",
     "name": "SadisflixProvider"
+},{
+    "iconUrl": "https://www.google.com/s2/favicons?domain=https://seriecenter.live&sz=128",
+    "apiVersion": 1,
+    "repositoryUrl": "https://codeberg.org/zzikozz/frencharchive",
+    "fileSize": 0,
+    "status": 1,
+    "language": "fr",
+    "authors": [
+        "zzikozz"
+    ],
+    "tvTypes": [
+        "TvSeries",
+        "Movie"
+    ],
+    "version": 1,
+    "internalName": "SerieCenterProvider",
+    "description": "SerieCenter est le coin des films et séries en français par excellence avec une multitude d’avantages qu’offre notre plateforme intelligente de streaming ! Que ce soit en VF ou en VOSTFR, seriecenter.live est le meilleur site qui vous permet de regarder les films et les séries en streaming gratuitement. Des séries complètes, toutes les saisons, tous les épisodes, ainsi que les nouveaux films Box-Office, sont disponibles sur notre site, classé numéro 1 dans le streaming complet des séries et des films.",
+    "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/test/compiled/SerieCenterProvider.cs3",
+    "name": "SerieCenterProvider"
 }
 ]
