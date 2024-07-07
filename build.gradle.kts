@@ -11,6 +11,7 @@ buildscript {
         maven("https://jitpack.io")
     }
 
+
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
         // Cloudstream gradle plugin which makes everything work and builds plugins
@@ -100,6 +101,8 @@ subprojects {
         implementation("org.mozilla:rhino:1.7.14")
 		    // Library/extensions searching with Levenshtein distance
         implementation ("me.xdrop:fuzzywuzzy:1.4.0")
+
+        implementation("net.objecthunter:exp4j:0.4.8")
     }
 }
 
