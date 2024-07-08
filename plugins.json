@@ -29,13 +29,14 @@
         "status": 1,
         "language": "fr",
         "authors": [
-            "Eddy"
+            "Eddy",
+            "zzikozz"
         ],
         "tvTypes": [
             "TvSeries",
             "Movie"
         ],
-        "version": 4,
+        "version": 5,
         "internalName": "WiflixProvider",
         "description": "WIFLIX, le site gr\u00e2ce auquel vous allez pouvoir regarder vos films et s\u00e9ries pr\u00e9f\u00e9r\u00e9es",
         "url": "https://codeberg.org/zzikozz/frencharchive/raw/branch/Release/compiled/WiflixProvider.cs3",
